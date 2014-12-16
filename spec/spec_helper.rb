@@ -4,7 +4,7 @@ require 'climate_control'
 Dir[File.join(Headquarters::ROOT_PATH, 'spec/support/**/*.rb')].each { |f| require f }
 
 class DummyLogger
-  def self.info(message); end
+  def self.info(_message); end
 end
 Headquarters.logger = DummyLogger
 

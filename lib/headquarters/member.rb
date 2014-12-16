@@ -5,10 +5,7 @@ module Headquarters
     end
 
     def self.all_internal
-      Request.perform(:get, Endpoints::MEMBERS_INTERNAL, basic_auth: {
-        username: ENV['BASIC_AUTH_USER'],
-        password: ENV['BASIC_AUTH_PASS']
-      })
+      Request.perform_with_auth(:get, Endpoints::MEMBERS_INTERNAL)
     end
   end
 end
