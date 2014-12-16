@@ -32,14 +32,18 @@ Headquarters.api_port = 3000
 Out of the box headquarters-ruby will log all requests and responses to `STDOUT`, you
 can use any logger you want, though:
 
-    Headquarters.logger = Logger.new(STDERR)
+```ruby
+Headquarters.logger = Logger.new(STDERR)
+```
 
 ## Members
 
 To retrieve a collection of all members of the team you might use the `all`
 operation:
 
-    Headquarters::Member.all
+```ruby
+Headquarters::Member.all
+```
 
 ### Internal
 
@@ -53,7 +57,9 @@ BASIC_AUTH_PASS=some-password
 
 Now you may use the `all_internal` operation:
 
-    Headquarters::Member.all_internal
+```ruby
+Headquarters::Member.all_internal
+```
 
 # Testing
 
