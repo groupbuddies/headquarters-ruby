@@ -58,6 +58,12 @@ operation:
 Headquarters::Member.all
 ```
 
+Or you can search for a specific email
+
+```ruby
+Headquarters::Member.search('mpalhas@groupbuddies.com')
+```
+
 ### Pull Requests
 
 To get all (paginated) pull requests for groupbuddies, use the

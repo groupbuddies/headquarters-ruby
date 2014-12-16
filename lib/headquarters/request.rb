@@ -5,22 +5,24 @@ module Headquarters
     include ::HTTParty
     base_uri Headquarters.api_base
 
-    def self.perform_with_auth(http_method, path)
-      perform(http_method, path,
+    def self.perform_with_auth(http_method, path, params = {}, options = {})
+      options_with_auth = options.merge(
         basic_auth: {
           username: ENV['BASIC_AUTH_USER'],
           password: ENV['BASIC_AUTH_PASS']
         }
       )
+      perform(http_method, path, params, options_with_auth)
     end
 
-    def self.perform(http_method, path, options = {})
-      new(path, options).public_send(http_method)
+    def self.perform(http_method, path, params = {}, options = {})
+      new(path, params, options).public_send(http_method)
     end
 
-    def initialize(path, options)
+    def initialize(path, params, options)
       @path = path
       @options = options
+      @options.merge!(query: params) if params && params.any?
     end
 
     def get
