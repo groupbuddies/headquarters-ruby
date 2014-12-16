@@ -18,9 +18,6 @@ Style/AlignParameters:
 Style/ClassAndModuleChildren:
   Enabled: false
 
-Style/ClassVars:
-  Enabled: false
-
 Style/Documentation:
   Enabled: false
 
