@@ -1,7 +1,7 @@
 require 'httparty'
 
 module Headquarters
-  class Requests
+  class Request
     include ::HTTParty
     base_uri 'hq.groupbuddies.com'
 

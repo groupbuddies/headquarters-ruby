@@ -1,7 +1,7 @@
 module Headquarters
   class Members
     def self.all
-      Requests.get_json('/members')
+      Request.get_json('/members')
     end
   end
 end
