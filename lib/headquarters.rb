@@ -1,5 +1,6 @@
-require "headquarters/version"
+require 'headquarters/version'
+require 'headquarters/requests'
+require 'headquarters/team'
 
 module Headquarters
-  # Your code goes here...
 end
