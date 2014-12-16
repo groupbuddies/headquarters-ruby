@@ -1,7 +1,11 @@
 module Headquarters
   class Members
     def self.all
-      Request.get_json('/members')
+      Request.perform(:get, '/members')
+    end
+
+    def self.all_internal
+      Request.perform(:get, '/internal/members')
     end
   end
 end
