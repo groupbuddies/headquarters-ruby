@@ -1,5 +1,7 @@
 # Headquarters
 
+[![Build Status](https://semaphoreapp.com/api/v1/projects/2a53d14e-b72c-4047-bd1d-1193498cf8fe/311022/shields_badge.svg)](https://semaphoreapp.com/groupbuddies/headquarters-ruby)
+
 Ruby wrapper for the [headquarters API](https://github.com/groupbuddies/headquarters)
 
 # Usage
