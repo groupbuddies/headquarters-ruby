@@ -1,6 +1,6 @@
 require 'headquarters/version'
 require 'headquarters/requests'
-require 'headquarters/team'
+require 'headquarters/members'
 
 module Headquarters
 end
