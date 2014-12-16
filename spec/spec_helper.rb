@@ -1,0 +1,13 @@
+require 'headquarters'
+require 'climate_control'
+
+Dir[File.join(Headquarters::ROOT_PATH, 'spec/support/**/*.rb')].each { |f| require f }
+
+class DummyLogger
+  def self.info(message); end
+end
+Headquarters.logger = DummyLogger
+
+def with_modified_env(options, &block)
+  ClimateControl.modify(options, &block)
+end

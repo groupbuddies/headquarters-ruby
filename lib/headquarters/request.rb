@@ -5,41 +5,42 @@ module Headquarters
     include ::HTTParty
     base_uri Headquarters.api_base
 
-    def self.perform(http_method, path)
+    def self.perform(http_method, path, options = {})
       case http_method
       when :post
-        new(path).post
+        new(path, options).post
       else
-        new(path).get
+        new(path, options).get
       end
     end
 
-    def initialize(path)
+    def initialize(path, options)
       @path = path
+      @options = options
     end
 
     def get
-      Request.get(path).to_json.tap do |response|
-        log_request_info(:get, response)
-      end
+      response = Request.get(path, options)
+      log_request_info(:get, response)
+      response.parsed_response
     end
 
     def post
-      Request.post(path).to_json.tap do |response|
-        log_request_info(:post, response)
-      end
+      response = Request.post(path, options)
+      log_request_info(:post, response)
+      response.parsed_response
     end
 
     private
 
-    attr_reader :path
+    attr_reader :path, :options
 
     def log_request_info(http_method, response)
       Headquarters.logger.info "[HQ] [#{current_time}] #{http_method.to_s.upcase} #{path} #{response.code}"
     end
 
     def current_time
-      Time.now.utc.strftime("%d/%b/%Y %H:%M:%S %Z")
+      Time.now.utc.strftime('%d/%b/%Y %H:%M:%S %Z')
     end
   end
 end

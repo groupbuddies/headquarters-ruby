@@ -1,6 +1,9 @@
+require 'net/https'
+require 'logger'
+require 'dotenv'
+
 require 'headquarters/version'
-require 'headquarters/request'
-require 'headquarters/members'
+require 'headquarters/endpoints'
 
 module Headquarters
   API_BASE = 'hq.groupbuddies.com'
@@ -52,3 +55,8 @@ module Headquarters
     @@logger = logger
   end
 end
+
+require 'headquarters/request'
+require 'headquarters/member'
+
+Dotenv.load
