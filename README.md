@@ -1,9 +1,8 @@
 # Headquarters
 
-Ruby wrapper for the [headquarters
-API](https://github.com/groupbuddies/headquarters)
+Ruby wrapper for the [headquarters API](https://github.com/groupbuddies/headquarters)
 
-## Installation
+# Usage
 
 Add this line to your application's Gemfile:
 
@@ -19,11 +18,54 @@ Or install it yourself as:
 
     $ gem install headquarters
 
-## Usage
+## Configuration
 
-TODO: Write usage instructions here
+You can set the API's base endpoint and port:
 
-## Contributing
+```ruby
+Headquarters.api_base = "0.0.0.0"
+Headquarters.api_port = 3000
+```
+
+### Logging
+
+Out of the box headquarters-ruby will log all requests and responses to `STDOUT`, you
+can use any logger you want, though:
+
+    Headquarters.logger = Logger.new(STDERR)
+
+## Members
+
+To retrieve a collection of all members of the team you might use the `all`
+operation:
+
+    Headquarters::Member.all
+
+### Internal
+
+There is some extra info protected with basic authentication. In order to get it
+you must first add the credentials to you `.env` file:
+
+```
+BASIC_AUTH_USER=some-username
+BASIC_AUTH_PASS=some-password
+```
+
+Now you may use the `all_internal` operation:
+
+    Headquarters::Member.all_internal
+
+# Testing
+
+To run the tests (including style tests with Rubucop) install all the
+dependencies and run the default rake task:
+
+```
+bundle install
+bundle exec rake
+```
+
+# Contributing
 
 1. Fork it ( https://github.com/[my-github-username]/headquarters/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
