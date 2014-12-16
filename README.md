@@ -10,6 +10,12 @@ Add this line to your application's Gemfile:
 gem 'headquarters'
 ```
 
+Or if you want the edge version:
+
+```ruby
+gem 'headquarters', github: 'groupbuddies/headquarters-ruby'
+```
+
 And then execute:
 
     $ bundle
@@ -17,6 +23,7 @@ And then execute:
 Or install it yourself as:
 
     $ gem install headquarters
+    
 
 ## Configuration
 
