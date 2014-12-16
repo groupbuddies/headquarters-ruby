@@ -15,12 +15,7 @@ module Headquarters
     end
 
     def self.perform(http_method, path, options = {})
-      case http_method
-      when :post
-        new(path, options).post
-      else
-        new(path, options).get
-      end
+      new(path, options).public_send(http_method)
     end
 
     def initialize(path, options)
