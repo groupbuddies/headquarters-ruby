@@ -25,7 +25,7 @@ And then execute:
 Or install it yourself as:
 
     $ gem install headquarters
-    
+
 
 ## Configuration
 
@@ -54,7 +54,24 @@ operation:
 Headquarters::Member.all
 ```
 
-### Internal
+## Pull Requests
+
+To get all (paginated) open pull requests for groupbuddies, use the
+`pull_requests` operation:
+
+```ruby
+Headquarters::Github.pull_requests
+```
+
+You can filter these results using anything that github takes in the `q`
+parameters of its [search API](https://developer.github.com/v3/search/). For
+instance, if you want to get only the open pull requests, you might do:
+
+```ruby
+Headquarters::Github.pull_requests(query: 'is:open')
+```
+
+# Internal
 
 There is some extra info protected with basic authentication. In order to get it
 you must first add the credentials to you `.env` file:
@@ -63,6 +80,8 @@ you must first add the credentials to you `.env` file:
 BASIC_AUTH_USER=some-username
 BASIC_AUTH_PASS=some-password
 ```
+
+## Members
 
 Now you may use the `all_internal` operation:
 
