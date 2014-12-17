@@ -18,7 +18,7 @@ module Headquarters
 
         Member.all_internal
 
-        expect(Request).to have_received(:perform_with_auth).with(:get, Endpoints::MEMBERS_INTERNAL)
+        expect(Request).to have_received(:perform_with_auth).with(:get, Endpoints::Internal::MEMBERS)
       end
     end
   end
