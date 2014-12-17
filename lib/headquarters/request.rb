@@ -40,7 +40,7 @@ module Headquarters
     attr_reader :path, :options
 
     def log_request_info(http_method, response)
-      Headquarters.logger.info "[HQ] [#{current_time}] #{http_method.to_s.upcase} #{path} #{response.code}"
+      Headquarters.logger.info "[HQ] [#{current_time}] #{http_method.to_s.upcase} #{path} #{options} #{response.code}"
     end
 
     def current_time

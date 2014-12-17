@@ -5,7 +5,7 @@ module Headquarters
     end
 
     def self.all_internal
-      Request.perform_with_auth(:get, Endpoints::MEMBERS_INTERNAL)
+      Request.perform_with_auth(:get, Endpoints::Internal::MEMBERS)
     end
   end
 end

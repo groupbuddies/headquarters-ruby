@@ -20,5 +20,6 @@ end
 
 require 'headquarters/request'
 require 'headquarters/member'
+require 'headquarters/github'
 
 Dotenv.load

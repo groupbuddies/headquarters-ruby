@@ -1,6 +1,13 @@
 module Headquarters
   module Endpoints
     MEMBERS = '/members'
-    MEMBERS_INTERNAL = '/internal/members'
+
+    module Github
+      PULL_REQUESTS = '/github/pull_requests'
+    end
+
+    module Internal
+      MEMBERS = '/internal/members'
+    end
   end
 end

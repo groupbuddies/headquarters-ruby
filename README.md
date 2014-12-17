@@ -4,7 +4,7 @@
 
 Ruby wrapper for the [headquarters API](https://github.com/groupbuddies/headquarters)
 
-# Usage
+## Installation
 
 Add this line to your application's Gemfile:
 
@@ -25,7 +25,7 @@ And then execute:
 Or install it yourself as:
 
     $ gem install headquarters
-    
+
 
 ## Configuration
 
@@ -45,13 +45,34 @@ can use any logger you want, though:
 Headquarters.logger = Logger.new(STDERR)
 ```
 
-## Members
+## Usage
+
+These are all the available method to interact with the headquarters.
+
+### Members
 
 To retrieve a collection of all members of the team you might use the `all`
 operation:
 
 ```ruby
 Headquarters::Member.all
+```
+
+### Pull Requests
+
+To get all (paginated) pull requests for groupbuddies, use the
+`pull_requests` operation:
+
+```ruby
+Headquarters::Github.pull_requests
+```
+
+You can filter these results using anything that github takes in the `q`
+parameters of its [search API](https://developer.github.com/v3/search/). For
+instance, if you want to get only the open pull requests, you might do:
+
+```ruby
+Headquarters::Github.pull_requests(query: 'is:open')
 ```
 
 ### Internal
@@ -64,13 +85,15 @@ BASIC_AUTH_USER=some-username
 BASIC_AUTH_PASS=some-password
 ```
 
+#### Members
+
 Now you may use the `all_internal` operation:
 
 ```ruby
 Headquarters::Member.all_internal
 ```
 
-# Testing
+## Testing
 
 To run the tests (including style tests with Rubucop) install all the
 dependencies and run the default rake task:
@@ -80,7 +103,7 @@ bundle install
 bundle exec rake
 ```
 
-# Contributing
+## Contributing
 
 1. Fork it ( https://github.com/[my-github-username]/headquarters/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
