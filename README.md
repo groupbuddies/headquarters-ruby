@@ -60,7 +60,7 @@ Headquarters::Member.all
 
 ### Pull Requests
 
-To get all (paginated) open pull requests for groupbuddies, use the
+To get all (paginated) pull requests for groupbuddies, use the
 `pull_requests` operation:
 
 ```ruby
