@@ -8,7 +8,8 @@ module Headquarters
 
         Github.pull_requests
 
-        expect(Request).to have_received(:perform).with(:get, Endpoints::Github::PULL_REQUESTS)
+        expect(Request).to have_received(:perform).
+          with(:get, Endpoints::Github::PULL_REQUESTS, query: { q: nil })
       end
 
       it 'asks for the open pull requests' do
