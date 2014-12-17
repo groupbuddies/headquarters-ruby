@@ -4,7 +4,7 @@
 
 Ruby wrapper for the [headquarters API](https://github.com/groupbuddies/headquarters)
 
-# Usage
+## Installation
 
 Add this line to your application's Gemfile:
 
@@ -45,7 +45,11 @@ can use any logger you want, though:
 Headquarters.logger = Logger.new(STDERR)
 ```
 
-## Members
+## Usage
+
+These are all the available method to interact with the headquarters.
+
+### Members
 
 To retrieve a collection of all members of the team you might use the `all`
 operation:
@@ -54,7 +58,7 @@ operation:
 Headquarters::Member.all
 ```
 
-## Pull Requests
+### Pull Requests
 
 To get all (paginated) open pull requests for groupbuddies, use the
 `pull_requests` operation:
@@ -71,7 +75,7 @@ instance, if you want to get only the open pull requests, you might do:
 Headquarters::Github.pull_requests(query: 'is:open')
 ```
 
-# Internal
+### Internal
 
 There is some extra info protected with basic authentication. In order to get it
 you must first add the credentials to you `.env` file:
@@ -81,7 +85,7 @@ BASIC_AUTH_USER=some-username
 BASIC_AUTH_PASS=some-password
 ```
 
-## Members
+#### Members
 
 Now you may use the `all_internal` operation:
 
@@ -89,7 +93,7 @@ Now you may use the `all_internal` operation:
 Headquarters::Member.all_internal
 ```
 
-# Testing
+## Testing
 
 To run the tests (including style tests with Rubucop) install all the
 dependencies and run the default rake task:
@@ -99,7 +103,7 @@ bundle install
 bundle exec rake
 ```
 
-# Contributing
+## Contributing
 
 1. Fork it ( https://github.com/[my-github-username]/headquarters/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
