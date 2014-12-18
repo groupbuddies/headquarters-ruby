@@ -22,7 +22,7 @@ module Headquarters
     def initialize(path, params, options)
       @path = path
       @options = options
-      @options.merge(query: params) if params && params.any?
+      @options.merge!(query: params) if params && params.any?
     end
 
     def get
