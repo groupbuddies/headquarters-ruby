@@ -99,6 +99,14 @@ Now you may use the `all_internal` operation:
 Headquarters::Member.all_internal
 ```
 
+#### Emails
+
+You can send emails for Group Buddies addresses (Any non-GB addresses will be filtered out)
+
+```ruby
+Headquarters::Email.send(to: 'mpalhas@groupbuddies.com,zamith@groupbuddies.com', subject: 'custom subject', body: '<b>HTML body</b>', app_name: 'hq')
+```
+
 ## Testing
 
 To run the tests (including style tests with Rubucop) install all the

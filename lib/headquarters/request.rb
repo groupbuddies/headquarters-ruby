@@ -22,16 +22,18 @@ module Headquarters
     def initialize(path, params, options)
       @path = path
       @options = options
-      @options.merge!(query: params) if params && params.any?
+      @params = params
     end
 
     def get
+      @options.merge!(query: params) if params && params.any?
       response = Request.get(path, options)
       log_request_info(:get, response)
       response.parsed_response
     end
 
     def post
+      @options.merge!(body: params) if params && params.any?
       response = Request.post(path, options)
       log_request_info(:post, response)
       response.parsed_response
@@ -39,7 +41,7 @@ module Headquarters
 
     private
 
-    attr_reader :path, :options
+    attr_reader :path, :options, :params
 
     def log_request_info(http_method, response)
       Headquarters.logger.info "[HQ] [#{current_time}] #{http_method.to_s.upcase} #{path} #{options} #{response.code}"
