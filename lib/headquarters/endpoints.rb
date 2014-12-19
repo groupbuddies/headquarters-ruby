@@ -8,6 +8,7 @@ module Headquarters
 
     module Internal
       MEMBERS = '/internal/members'
+      EMAIL = '/internal/emails'
     end
   end
 end
