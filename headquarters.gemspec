@@ -20,6 +20,8 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'dotenv'
   spec.add_dependency 'httparty', '>= 0.13.3'
+  spec.add_dependency 'omniauth', '~> 1.2.2'
+  spec.add_dependency 'omniauth-oauth2', '~> 1.2.0'
 
   spec.add_development_dependency 'climate_control'
   spec.add_development_dependency 'rake', '~> 10.0'
