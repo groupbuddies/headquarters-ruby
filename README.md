@@ -101,10 +101,33 @@ Headquarters::Member.all_internal
 
 #### Emails
 
-You can send emails for Group Buddies addresses (Any non-GB addresses will be filtered out)
+You can send emails for Group Buddies addresses (Any non-GB addresses will be filtered out).
+
+`app_name` can be set to be appended to the sender. i.e. `from: hq@groupbuddies.com, app_name: test` will become `hq+test@groupbuddies.com`. This is useful for filtering and labeling.
 
 ```ruby
 Headquarters::Email.send(to: 'mpalhas@groupbuddies.com,zamith@groupbuddies.com', subject: 'custom subject', body: '<b>HTML body</b>', app_name: 'hq')
+```
+
+  When using rails you can use headquarters as the delivery method, and transparently send emails using ActiveMailer as usual:
+
+```ruby
+# config/initializers/mailer.rb
+ActionMailer::Base.delivery_method = :headquarters
+```
+
+Using this method, `app_name` is also available as a header or parameter to the `mail` function
+
+```ruby
+class CustomMailer < ActionMailer::Base
+  # option 1, default header
+  default 'app_name' => 'MyApp'
+
+  def email
+    # option 2, as an argument
+    mail to: 'example@email.com', subjet: 'Subject', app_name: 'MyApp'
+  end
+end
 ```
 
 ## Testing
