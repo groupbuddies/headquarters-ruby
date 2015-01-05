@@ -7,7 +7,7 @@ module Headquarters
       PATH     = '/admin/hq/authorize'
 
       option :name, :headquarters
-      option :client_options, { site: URL, authorize_path: PATH }
+      option :client_options, site: URL, authorize_path: PATH
 
       uid do
         raw_info['id']
@@ -26,7 +26,7 @@ module Headquarters
 
     class SecureStrategy < Headquarters::OAuth::Strategy
       URL = 'https://hq.groupbuddies.com'
-      option :client_options, { site: URL, authorize_path: PATH }
+      option :client_options, site: URL, authorize_path: PATH
     end
   end
 end
