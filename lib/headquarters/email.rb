@@ -17,8 +17,6 @@ module Headquarters
       end.compact]
     end
 
-    private
-
     def self.prepare_params(raw_params)
       @to = raw_params[:to]
       if @to.is_a? Array

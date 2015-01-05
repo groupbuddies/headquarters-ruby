@@ -17,8 +17,6 @@ module Headquarters
           body:     mail.body.to_s,
           app_name: mail.header['app_name'].to_s
         }
-        require 'pry'
-        binding.pry
         Headquarters::Email.new(params).send
       end
 
