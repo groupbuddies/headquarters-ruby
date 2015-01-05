@@ -47,65 +47,7 @@ Headquarters.logger = Logger.new(STDERR)
 
 ## Usage
 
-These are all the available method to interact with the headquarters.
-
-### Members
-
-To retrieve a collection of all members of the team you might use the `all`
-operation:
-
-```ruby
-Headquarters::Member.all
-```
-
-Or you can search for a specific email
-
-```ruby
-Headquarters::Member.search('mpalhas@groupbuddies.com')
-```
-
-### Pull Requests
-
-To get all (paginated) pull requests for groupbuddies, use the
-`pull_requests` operation:
-
-```ruby
-Headquarters::Github.pull_requests
-```
-
-You can filter these results using anything that github takes in the `q`
-parameters of its [search API](https://developer.github.com/v3/search/). For
-instance, if you want to get only the open pull requests, you might do:
-
-```ruby
-Headquarters::Github.pull_requests(query: 'is:open')
-```
-
-### Internal
-
-There is some extra info protected with basic authentication. In order to get it
-you must first add the credentials to you `.env` file:
-
-```
-BASIC_AUTH_USER=some-username
-BASIC_AUTH_PASS=some-password
-```
-
-#### Members
-
-Now you may use the `all_internal` operation:
-
-```ruby
-Headquarters::Member.all_internal
-```
-
-#### Emails
-
-You can send emails for Group Buddies addresses (Any non-GB addresses will be filtered out)
-
-```ruby
-Headquarters::Email.send(to: 'mpalhas@groupbuddies.com,zamith@groupbuddies.com', subject: 'custom subject', body: '<b>HTML body</b>', app_name: 'hq')
-```
+Refer to the feature sets section of the [wiki](https://github.com/groupbuddies/headquarters-ruby/wiki#feature-sets)
 
 ## Testing
 
