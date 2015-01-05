@@ -5,6 +5,10 @@ require 'dotenv'
 require 'headquarters/version'
 require 'headquarters/endpoints'
 
+if defined? ::Rails::Railtie
+  require 'headquarters/railtie'
+end
+
 module Headquarters
   API_BASE = 'hq.groupbuddies.com'
   ROOT_PATH = File.dirname(__FILE__)

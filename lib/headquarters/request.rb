@@ -8,8 +8,8 @@ module Headquarters
     def self.perform_with_auth(http_method, path, params = {}, options = {})
       options_with_auth = options.merge(
         basic_auth: {
-          username: ENV['BASIC_AUTH_USER'],
-          password: ENV['BASIC_AUTH_PASS']
+          username: ENV['HQ_BASIC_AUTH_USER'] || ENV['BASIC_AUTH_USER'],
+          password: ENV['HQ_BASIC_AUTH_PASS'] || ENV['BASIC_AUTH_PASS']
         }
       )
       perform(http_method, path, params, options_with_auth)
