@@ -3,8 +3,8 @@ module Headquarters
     class Strategy < ::OmniAuth::Strategies::OAuth2
       include ::OmniAuth::Strategy
 
-      URL      = 'http://auth.groupbuddies.com'
-      PATH     = '/oauth/authorize'
+      URL      = 'http://hq.groupbuddies.com'
+      PATH     = '/admin/hq/authorize'
 
       option :name, :headquarters
       option :client_options, { site: URL, authorize_path: PATH }
@@ -25,7 +25,7 @@ module Headquarters
     end
 
     class SecureStrategy < Headquarters::OAuth::Strategy
-      URL = 'https://auth.groupbuddies.com'
+      URL = 'https://hq.groupbuddies.com'
       option :client_options, { site: URL, authorize_path: PATH }
     end
   end
