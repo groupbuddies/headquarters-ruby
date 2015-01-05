@@ -6,12 +6,7 @@ module Headquarters
     base_uri Headquarters.api_base
 
     def self.perform_with_auth(http_method, path, params = {}, options = {})
-      options_with_auth = options.merge(
-        basic_auth: {
-          username: ENV['HQ_BASIC_AUTH_USER'] || ENV['BASIC_AUTH_USER'],
-          password: ENV['HQ_BASIC_AUTH_PASS'] || ENV['BASIC_AUTH_PASS']
-        }
-      )
+      options_with_auth = options.merge(basic_auth_info)
       perform(http_method, path, params, options_with_auth)
     end
 
@@ -49,6 +44,30 @@ module Headquarters
 
     def current_time
       Time.now.utc.strftime('%d/%b/%Y %H:%M:%S %Z')
+    end
+
+    def self.basic_auth_info
+      hq_basic_auth_info || deprecated_basic_auth_info
+    end
+
+    def self.hq_basic_auth_info
+      return unless ENV['HQ_BASIC_AUTH_USER']
+      {
+        basic_auth: {
+          username: ENV['HQ_BASIC_AUTH_USER'],
+          password: ENV['HQ_BASIC_AUTH_PASS']
+        }
+      }
+    end
+
+    def self.deprecated_basic_auth_info
+      warn '[DEPRECATED] Using ENV["BASIC_AUTH_USER"] is deprecated. Please use ENV["HQ_BASIC_AUTH_USER"]'
+      {
+        basic_auth: {
+          username: ENV['BASIC_AUTH_USER'],
+          password: ENV['BASIC_AUTH_PASS']
+        }
+      }
     end
   end
 end
