@@ -1,13 +1,14 @@
 require 'spec_helper'
+require 'omniauth/strategies/headquarters'
 
-module Headquarters
-  module OAuth
-    describe Strategy do
+module OmniAuth
+  module Strategies
+    describe Headquarters do
       let(:request) { double('Request', params: {}, cookies: {}, env: {}) }
 
       subject do
         args = ['appid', 'secret', @options || {}].compact
-        OmniAuth::Strategies::Twitter.new(*args).tap do |strategy|
+        OmniAuth::Strategies::Headquarters.new(*args).tap do |strategy|
           allow(strategy).to receive(:request) {
             request
           }

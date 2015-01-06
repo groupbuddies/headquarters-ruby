@@ -1,6 +1,8 @@
-module Headquarters
-  module OAuth
-    class Strategy < ::OmniAuth::Strategies::OAuth2
+require 'omniauth-oauth2'
+
+module OmniAuth
+  module Strategies
+    class Headquarters < ::OmniAuth::Strategies::OAuth2
       include ::OmniAuth::Strategy
 
       URL      = 'http://hq.groupbuddies.com'
@@ -24,7 +26,7 @@ module Headquarters
       end
     end
 
-    class SecureStrategy < Headquarters::OAuth::Strategy
+    class HeadquartersSecure < Headquarters::OAuth::Strategy
       URL = 'https://hq.groupbuddies.com'
       option :client_options, site: URL, authorize_path: PATH
     end
