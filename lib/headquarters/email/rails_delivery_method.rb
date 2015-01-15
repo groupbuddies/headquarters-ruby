@@ -17,7 +17,7 @@ module Headquarters
           body:     mail.body.to_s,
           app_name: mail.header['app_name'].to_s
         }
-        Headquarters::Email.new(params).send
+        Headquarters::Email.send(params)
       end
 
       alias_method :deliver!,       :deliver
