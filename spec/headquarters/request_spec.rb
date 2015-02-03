@@ -33,24 +33,5 @@ module Headquarters
         expect(Request).to have_received(:get).with(url, {})
       end
     end
-
-    context '.perform_with_auth' do
-      it 'makes the actual call with basic auth' do
-        url = '/some-url'
-        credentials = { basic_auth: { username: 'user', password: 'pass' } }
-        new_env = {
-          BASIC_AUTH_PASS: credentials[:basic_auth][:password],
-          BASIC_AUTH_USER: credentials[:basic_auth][:username]
-        }
-        stub_request(:get, 'user:pass@' + Headquarters.api_base + url)
-        allow(Request).to receive(:get).and_call_original
-
-        with_modified_env new_env do
-          Request.perform_with_auth(:get, url)
-
-          expect(Request).to have_received(:get).with(url, credentials)
-        end
-      end
-    end
   end
 end

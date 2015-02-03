@@ -1,23 +1,23 @@
 module Headquarters
-  class Email
+  class Client::Email < API
     FIELDS = %i(to from subject app_name body)
 
-    def self.send(**raw_params)
+    def deliver(**raw_params)
       prepare_params(raw_params)
-      Request.perform_with_auth(:post, Endpoints::Internal::EMAIL, params)
+      post Endpoints::EMAIL, body: params
     end
 
-    class << self
-      attr_accessor(*FIELDS)
-    end
+    attr_accessor(*FIELDS)
 
-    def self.params
+    private
+
+    def params
       Hash[FIELDS.map do |field|
         [field, public_send(field)]
       end.compact]
     end
 
-    def self.prepare_params(raw_params)
+    def prepare_params(raw_params)
       @to = raw_params[:to]
       if @to.is_a? Array
         @to = @to.join(',')

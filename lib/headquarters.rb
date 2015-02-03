@@ -1,16 +1,15 @@
 require 'net/https'
 require 'logger'
-require 'dotenv'
 
 require 'headquarters/version'
-require 'headquarters/endpoints'
+require 'headquarters/client'
 
 if defined? ::Rails::Railtie
   require 'headquarters/railtie'
 end
 
 module Headquarters
-  API_BASE = 'hq.groupbuddies.com'
+  API_BASE = 'https://hq.groupbuddies.com'
   ROOT_PATH = File.dirname(__FILE__)
 
   @api_base = API_BASE
@@ -19,12 +18,11 @@ module Headquarters
 
   class << self
     attr_accessor :api_base, :api_port, :logger
+
+    def new(*options)
+      Client.new(*options)
+    end
   end
 end
 
 require 'headquarters/request'
-require 'headquarters/member'
-require 'headquarters/github'
-require 'headquarters/email'
-
-Dotenv.load

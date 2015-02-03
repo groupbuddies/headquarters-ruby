@@ -5,3 +5,10 @@ RuboCop::RakeTask.new
 RSpec::Core::RakeTask.new(:spec)
 
 task default: [:rubocop, :spec]
+
+task :console do
+  require 'pry'
+  require 'headquarters'
+  ARGV.clear
+  Pry.start
+end
