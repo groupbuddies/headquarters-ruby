@@ -10,7 +10,7 @@ module Headquarters
         it 'includes only the API version' do
           api = API.new
 
-          expect(api.headers).to eq({ 'Accept' => 'v2' })
+          expect(api.headers).to eq('Accept' => 'v2')
         end
       end
 

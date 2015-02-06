@@ -2,8 +2,7 @@ require 'headquarters/client/email'
 
 module Headquarters
   class RailsDeliveryMethod
-
-    def initialize(**args)
+    def initialize(**_)
     end
 
     class << self

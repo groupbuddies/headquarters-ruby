@@ -8,7 +8,6 @@ module Headquarters
 
       subject(:client) { described_class.new }
 
-
       context '#pull_requests' do
         it 'asks for all the pull requests' do
           allow(client).to receive(:get)
