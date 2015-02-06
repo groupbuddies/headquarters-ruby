@@ -47,7 +47,24 @@ Headquarters.logger = Logger.new(STDERR)
 
 ## Usage
 
-These are all the available method to interact with the headquarters.
+You must first instantiate a client:
+
+```ruby
+client = Headquarters.new
+```
+
+You most likely want to authenticate to use protected endpoints (such as sending emails). You can do so by passing the credentials to the constructor:
+
+
+```ruby
+client = Headquarters.new(client_id: 'your_client_id', client_secret: 'your_client_secret')
+```
+
+The main client contains namespaces that give you access to different features of Headquarters. For example, the email API can be accessed via `client.email`. If your applications needs only to send emails, and doesn't use any other features, you can instantiate an email client directly instead:
+
+```ruby
+email_client = Headquarters::Client::Email.new(client_id: 'your_client_id', client_secret: 'your_client_secret')
+```
 
 ### Members
 
@@ -55,22 +72,21 @@ To retrieve a collection of all members of the team you might use the `all`
 operation:
 
 ```ruby
-Headquarters::Member.all
+client.members.all
 ```
 
 Or you can search for a specific email
 
 ```ruby
-Headquarters::Member.search('mpalhas@groupbuddies.com')
+client.members.search('mpalhas@groupbuddies.com')
 ```
 
-### Pull Requests
+### Github
 
-To get all (paginated) pull requests for groupbuddies, use the
-`pull_requests` operation:
+Within the `github` namespace, you can use the `pull_requests` method to get a list of all open Pull Requests in the Group Buddies organization:
 
 ```ruby
-Headquarters::Github.pull_requests
+client.github.pull_requests
 ```
 
 You can filter these results using anything that github takes in the `q`
@@ -78,35 +94,17 @@ parameters of its [search API](https://developer.github.com/v3/search/). For
 instance, if you want to get only the open pull requests, you might do:
 
 ```ruby
-Headquarters::Github.pull_requests(query: 'is:open')
+client.github.pull_requests(query: 'is:open')
 ```
 
-### Internal
-
-There is some extra info protected with basic authentication. In order to get it
-you must first add the credentials to you `.env` file:
-
-```
-BASIC_AUTH_USER=some-username
-BASIC_AUTH_PASS=some-password
-```
-
-#### Members
-
-Now you may use the `all_internal` operation:
-
-```ruby
-Headquarters::Member.all_internal
-```
-
-#### Emails
+### Emails
 
 You can send emails for Group Buddies addresses (Any non-GB addresses will be filtered out).
 
 `app_name` can be set to be appended to the sender. i.e. `from: hq@groupbuddies.com, app_name: test` will become `hq+test@groupbuddies.com`. This is useful for filtering and labeling.
 
 ```ruby
-Headquarters::Email.send(to: 'mpalhas@groupbuddies.com,zamith@groupbuddies.com', subject: 'custom subject', body: '<b>HTML body</b>', app_name: 'hq')
+client.email.deliver(to: 'mpalhas@groupbuddies.com,zamith@groupbuddies.com', subject: 'custom subject', body: '<b>HTML body</b>', app_name: 'hq')
 ```
 
   When using rails you can use headquarters as the delivery method, and transparently send emails using ActiveMailer as usual:
@@ -114,6 +112,11 @@ Headquarters::Email.send(to: 'mpalhas@groupbuddies.com,zamith@groupbuddies.com',
 ```ruby
 # config/initializers/mailer.rb
 ActionMailer::Base.delivery_method = :headquarters
+
+Headquarters::RailsDeliveryMethod.credentials = {
+  client_id: 'your_client_id',
+  client_secret: 'your_client_secret'
+}
 ```
 
 Using this method, `app_name` is also available as a header or parameter to the `mail` function
