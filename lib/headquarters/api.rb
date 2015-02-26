@@ -1,3 +1,4 @@
+require 'headquarters/api/endpoints'
 require 'headquarters/api/factory'
 require 'headquarters/api/oauth_authenticator'
 

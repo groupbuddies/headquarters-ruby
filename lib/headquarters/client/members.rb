@@ -1,5 +1,3 @@
-require 'headquarters/api/endpoints'
-
 module Headquarters
   class Client::Members < API
     def all
