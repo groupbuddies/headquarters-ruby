@@ -1,8 +1,8 @@
 # Headquarters
 
-[![Build Status](https://semaphoreapp.com/api/v1/projects/2a53d14e-b72c-4047-bd1d-1193498cf8fe/311022/shields_badge.svg)](https://semaphoreapp.com/groupbuddies/headquarters-ruby)
+[![Build Status](https://semaphoreapp.com/api/v1/projects/2a53d14e-b72c-4047-bd1d-1193498cf8fe/311022/shields_badge.svg)](https://semaphoreapp.com/subvisual/headquarters-ruby)
 
-Ruby wrapper for the [headquarters API](https://github.com/groupbuddies/headquarters)
+Ruby wrapper for the [headquarters API](https://github.com/subvisual/headquarters)
 
 ## Installation
 
@@ -15,7 +15,7 @@ gem 'headquarters'
 Or if you want the edge version:
 
 ```ruby
-gem 'headquarters', github: 'groupbuddies/headquarters-ruby'
+gem 'headquarters', github: 'subvisual/headquarters-ruby'
 ```
 
 And then execute:
@@ -78,7 +78,7 @@ client.members.all
 Or you can search for a specific query
 
 ```ruby
-client.members.search('mpalhas@groupbuddies.com')
+client.members.search('miguel@subvisual.co')
 client.members.search('Miguel')
 ```
 
@@ -102,10 +102,10 @@ client.github.pull_requests(query: 'is:open')
 
 You can send emails for Group Buddies addresses (Any non-GB addresses will be filtered out).
 
-`app_name` can be set to be appended to the sender. i.e. `from: hq@groupbuddies.com, app_name: test` will become `hq+test@groupbuddies.com`. This is useful for filtering and labeling.
+`app_name` can be set to be appended to the sender. i.e. `from: contact@subvisual.co, app_name: test` will become `contact+test@subvisual.co`. This is useful for filtering and labeling.
 
 ```ruby
-client.email.deliver(to: 'mpalhas@groupbuddies.com,zamith@groupbuddies.com', subject: 'custom subject', body: '<b>HTML body</b>', app_name: 'hq')
+client.email.deliver(to: 'miguel@subvisual.co,zamith@subvisual.co', subject: 'custom subject', body: '<b>HTML body</b>', app_name: 'hq')
 ```
 
   When using rails you can use headquarters as the delivery method, and transparently send emails using ActiveMailer as usual:

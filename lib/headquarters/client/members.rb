@@ -4,6 +4,10 @@ module Headquarters
       get Endpoints::MEMBERS
     end
 
+    def me
+      get Endpoints::ME
+    end
+
     def search(query)
       get Endpoints::MEMBERS, query: { q: query }
     end

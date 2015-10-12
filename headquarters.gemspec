@@ -7,10 +7,10 @@ Gem::Specification.new do |spec|
   spec.name          = 'headquarters'
   spec.version       = Headquarters::VERSION
   spec.authors       = ['Miguel Palhas', 'Luís Ferreira']
-  spec.email         = ['mpalhas@groupbuddies.com', 'zamith@groupbuddies.com']
+  spec.email         = ['miguel@subvisual.co', 'zamith@subvisual.co']
   spec.summary       = %q{Ruby wrapper for the headquarters API for Group Buddies}
   spec.description   = %q{Ruby wrapper for the headquarters API for Group Buddies}
-  spec.homepage      = 'https://github.com/groupbuddies/headquarters-ruby'
+  spec.homepage      = 'https://github.com/subvisual/headquarters-ruby'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0")
