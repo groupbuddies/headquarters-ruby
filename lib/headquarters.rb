@@ -9,7 +9,7 @@ if defined? ::Rails::Railtie
 end
 
 module Headquarters
-  API_BASE = 'https://hq.groupbuddies.com'
+  API_BASE = 'https://hq.subvisual.co'
   ROOT_PATH = File.dirname(__FILE__)
 
   @api_base = API_BASE
