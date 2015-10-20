@@ -1,6 +1,7 @@
 # Headquarters
 
 [![Build Status](https://semaphoreapp.com/api/v1/projects/2a53d14e-b72c-4047-bd1d-1193498cf8fe/311022/shields_badge.svg)](https://semaphoreapp.com/subvisual/headquarters-ruby)
+[![Test Coverage](https://codeclimate.com/github/subvisual/headquarters-ruby/badges/coverage.svg)](https://codeclimate.com/github/subvisual/headquarters-ruby/coverage)
 
 Ruby wrapper for the [headquarters API](https://github.com/subvisual/headquarters)
 
