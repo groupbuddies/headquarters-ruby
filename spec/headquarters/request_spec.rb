@@ -1,6 +1,6 @@
 require 'spec_helper'
 require 'webmock/rspec'
-WebMock.disable_net_connect!
+WebMock.disable_net_connect!(allow: 'codeclimate.com')
 
 module Headquarters
   describe Request do
