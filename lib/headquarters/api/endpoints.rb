@@ -2,7 +2,7 @@ module Headquarters
   class API
     module Endpoints
       MEMBERS = '/members'
-      PROJECTS = '/projects'
+      ME = '/members/me'
       EMAIL = '/emails'
       OAUTH_TOKEN = '/oauth/token'
 

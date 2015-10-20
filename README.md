@@ -82,20 +82,6 @@ client.members.search('mpalhas@groupbuddies.com')
 client.members.search('Miguel')
 ```
 
-### Projects
-
-To retrieve a collection of all projects of the team you can use the `all` operation:
-
-```ruby
-client.projects.all
-```
-
-Or you can search for a specific query
-
-```ruby
-client.projects.search('headquarters')
-```
-
 ### Github
 
 Within the `github` namespace, you can use the `pull_requests` method to get a list of all open Pull Requests in the Group Buddies organization:
