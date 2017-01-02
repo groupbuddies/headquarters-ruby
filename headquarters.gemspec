@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Headquarters::VERSION
   spec.authors       = ['Miguel Palhas', 'Luís Ferreira']
   spec.email         = ['miguel@subvisual.co', 'zamith@subvisual.co']
-  spec.summary       = %q{Ruby wrapper for the headquarters API for Group Buddies}
-  spec.description   = %q{Ruby wrapper for the headquarters API for Group Buddies}
+  spec.summary       = %q{Ruby wrapper for the headquarters API for Subvisual}
+  spec.description   = %q{Ruby wrapper for the headquarters API for Subvisual}
   spec.homepage      = 'https://github.com/subvisual/headquarters-ruby'
   spec.license       = 'MIT'
 
