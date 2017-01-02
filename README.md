@@ -85,7 +85,7 @@ client.members.search('Miguel')
 
 ### Github
 
-Within the `github` namespace, you can use the `pull_requests` method to get a list of all open Pull Requests in the Group Buddies organization:
+Within the `github` namespace, you can use the `pull_requests` method to get a list of all open Pull Requests in the Subvisual organization:
 
 ```ruby
 client.github.pull_requests
@@ -101,7 +101,7 @@ client.github.pull_requests(query: 'is:open')
 
 ### Emails
 
-You can send emails for Group Buddies addresses (Any non-GB addresses will be filtered out).
+You can send emails for Subvisual addresses (Any other addresses will be filtered out).
 
 `app_name` can be set to be appended to the sender. i.e. `from: contact@subvisual.co, app_name: test` will become `contact+test@subvisual.co`. This is useful for filtering and labeling.
 
